@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <strings.h>
 #include <msettings.h>
 
 #include <unistd.h>
@@ -1069,7 +1070,7 @@ static void Config_getPath(char* filename, int override) {
 }
 #if HAS_GAME_OVERLAYS
 static int Config_compareOverlayNames(const void* a, const void* b) {
-	return strcmp(*(const char* const*)a, *(const char* const*)b);
+	return strcasecmp(*(const char* const*)a, *(const char* const*)b);
 }
 static void Config_findOverlays(void) {
 	char path[MAX_PATH];
